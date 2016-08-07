@@ -264,6 +264,45 @@ public class MainActivity extends Activity implements LocationListener, GoogleAp
         });
     }
 
+    public List<Posto> buscaJSONOtherPlace(Double lat, Double lon) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(PostoService.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create()).build();
+
+        final List<Posto> listOtherPlace = new ArrayList<>();
+        String latitude = String.valueOf(lat);
+        String longitude = String.valueOf(lon);
+
+        PostoService jsonPostos = retrofit.create(PostoService.class);
+
+        Call<PostoCatalog> listaRequest = jsonPostos.listaPostos(latitude, longitude);
+        listaRequest.enqueue(new Callback<PostoCatalog>() {
+            @Override
+            public void onResponse(Call<PostoCatalog> call, Response<PostoCatalog> response) {
+                if (!response.isSuccessful()) {
+                    Log.i("TAG", "ERRO: " + response.code());
+
+                } else {
+                    PostoCatalog catalog = response.body();
+
+                    Data data = catalog.data;
+
+                    for (Posto getPosto : data.postos) {
+                        listOtherPlace.add(getPosto);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PostoCatalog> call, Throwable t) {
+
+            }
+        });
+
+        Log.i("OTHER", String.valueOf(listOtherPlace.size()));
+        return listOtherPlace;
+    }
+
     private void findViews() {
         textView = (TextView) findViewById(R.id.textViewSplash);
         imageView = (ImageView) findViewById(R.id.imageViewSplash);

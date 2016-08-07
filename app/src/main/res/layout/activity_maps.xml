@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="lf.com.br.gasstations.MapsActivity"
     >
 
@@ -16,7 +15,56 @@
         android:layout_above="@+id/radioGroup">
 
     </FrameLayout>
-        <RadioGroup
+
+    <RelativeLayout
+        android:elevation="6dp"
+        android:background="@drawable/borda_edt"
+        android:id="@+id/layoutEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_toLeftOf="@+id/layoutMyLocation">
+            <EditText
+                android:maxLines="1"
+                android:lines="1"
+
+                android:layout_marginLeft="7dp"
+                android:background="#FFFFFF"
+                android:id="@+id/editTextOtherPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/btnLimpaCampoOther"
+                android:inputType="textImeMultiLine"
+                android:imeOptions="actionSearch"/>
+
+            <ImageView
+
+                android:src="@drawable/ic_window_close_grey"
+                android:id="@+id/btnLimpaCampoOther"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_toStartOf="@+id/btnGoOtherPlace"
+                android:layout_alignBottom="@+id/editTextOtherPlace"
+                android:layout_marginBottom="2dp"/>
+
+        <ImageView
+            android:background="@drawable/ic_magnify_grey"
+            android:id="@+id/btnGoOtherPlace"
+            android:paddingEnd="5dp"
+            android:layout_width="33dp"
+            android:layout_height="35dp"
+            android:layout_alignBottom="@+id/btnLimpaCampoOther"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+
+    <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,6 +97,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RadioGroup>
+
+    <LinearLayout
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:elevation="6dp"
+        android:background="@drawable/borda_edt"
+        android:orientation="horizontal"
+        android:id="@+id/layoutMyLocation"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/layoutEditText"
+        android:layout_alignParentEnd="true">
+
+        <Button
+            android:background="@drawable/my_location_grey"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnMyLocation"
+            />
+
+    </LinearLayout>
 
 
 

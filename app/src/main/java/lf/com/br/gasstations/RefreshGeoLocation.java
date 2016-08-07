@@ -23,7 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
  */
 public class RefreshGeoLocation implements LocationListener {
 
-    private GoogleApiClient client;
+    public GoogleApiClient client;
     private MapFragment mapa;
     private Context context;
     public LatLng local;

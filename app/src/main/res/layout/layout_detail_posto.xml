@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
 
-</LinearLayout>
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:id="@+id/imgBandeira"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imgBandeira"
+        android:id="@+id/txtNomePosto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:id="@+id/txtEndPosto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNomePosto"
+        android:layout_toRightOf="@+id/imgBandeira"
+        android:layout_marginBottom="10dp"/>
+
+    <ImageView
+        android:layout_below="@+id/txtEndPosto"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:id="@+id/imgViewPostoGAS"
+        android:layout_toLeftOf="@+id/imgViewPostoAlc"
+        />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:id="@+id/imgViewPostoAlc"
+        android:layout_below="@+id/txtEndPosto"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:layout_below="@+id/txtEndPosto"
+        android:layout_toRightOf="@+id/imgViewPostoAlc"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text=""
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:id="@+id/imgViewPostoGNV" />
+
+    <TextView
+        android:layout_below="@+id/imgViewPostoGNV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="    Comentários"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:id="@+id/textViewPostoDetail" />
+
+
+    <RelativeLayout
+        android:id="@+id/layoutComents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewPostoDetail">
+
+
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/btnSendComments">
+            <EditText
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextComments"
+                android:layout_toStartOf="@+id/btnSendComments"
+                android:hint="Deixe seu comentário"/>
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+        <ImageButton
+            android:background="@drawable/background_fab"
+            android:src="@drawable/ic_send_white_24dp"
+            android:id="@+id/btnSendComments"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <ListView
+        android:layout_below="@+id/layoutComents"
+        android:id="@+id/listViewPostoDetail"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_navigation"
+        android:id="@+id/btnGMaps"
+        android:layout_alignBottom="@+id/textViewPostoDetail"
+        android:layout_alignEnd="@+id/layoutComents" />
+</RelativeLayout>

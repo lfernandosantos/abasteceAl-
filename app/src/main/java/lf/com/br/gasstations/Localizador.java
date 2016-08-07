@@ -20,6 +20,24 @@ public class Localizador {
 
     }
 
+    public LatLng getCoordenadas(String endereco) {
+        try {
+            List<Address> listaEnderecos;
+            listaEnderecos = geo.getFromLocationName(endereco, 1);
+            if (!listaEnderecos.isEmpty()){
+                Address address = listaEnderecos.get(0);
+                return new LatLng(address.getLatitude(), address.getLongitude());
+            }
+            else {
+                return null;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
     public LatLng getCoordenada(String endereco) {
         try {
             List<Address> listaEnderecos;

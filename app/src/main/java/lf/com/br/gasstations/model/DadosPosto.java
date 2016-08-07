@@ -5,22 +5,55 @@ package lf.com.br.gasstations.model;
  */
 public class DadosPosto {
 
-    private String id;
-    private String coments;
+    private Integer id;
+    private String nome;
+    private String comments;
+    private String lat;
+    private String lon;
 
-    public String getId() {
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
+        this.lon = lon;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getComents() {
-        return coments;
+    public String getNome() {
+        return nome;
     }
 
-    public void setComents(String coments) {
-        this.coments = coments;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String coments) {
+        this.comments = coments;
+    }
+
+    @Override
+    public String toString() {
+        return comments;
     }
 }

@@ -19,5 +19,8 @@ public interface PostoService {
     @GET("busca.json")
     Call<PostoCatalog> listaPostos(@Query("lat") String latitude, @Query("lon") String longitude);
 
+    @GET("busca.json")
+    Call<PostoCatalog> listaPostosPorNome(@Query("chave") String nomePosto);
+
 
 }
