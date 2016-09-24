@@ -21,7 +21,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_abastece_ai"
+        android:icon="@drawable/ic_new_launcher"
         android:label="Abastece Alí"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -45,6 +45,9 @@
         <activity android:name=".MapsActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".LocalActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".model.NoGPSInternet"
             android:screenOrientation="portrait"/>
     </application>
 

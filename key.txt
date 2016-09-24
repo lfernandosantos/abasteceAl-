@@ -1,0 +1,42 @@
+keytool -list -v -keystore C:\Users\Fernando\.android\debug.keystore -alias androiddebugkey -storepass android -keypass android
+
+
+ SHA1: F2:94:06:26:10:81:C5:FE:24:0F:41:89:1D:CE:26:17:E8:5C:C6:56
+
+debug: AIzaSyDs6HMhkDGE0eA0ojfO5_0cS0AChxa-QFc
+prod: AIzaSyBmKcNbxRSIdR7AO4Fc8v7VNl0t7zwsqEU
+
+
+Microsoft Windows [versão 10.0.10586]
+(c) 2015 Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\Fernando>keytool -list -v -keystore C:\Users\Fernando\.android\debug.keystore -alias androiddebugkey -storepass android -keypass android
+Nome do alias: androiddebugkey
+Data de criação: 30/11/2015
+Tipo de entrada: PrivateKeyEntry
+Comprimento da cadeia de certificados: 1
+Certificado[1]:
+Proprietário: CN=Android Debug, O=Android, C=US
+Emissor: CN=Android Debug, O=Android, C=US
+Número de série: d4d4c73
+Válido de: Mon Nov 30 07:12:59 BRST 2015 a: Wed Nov 22 07:12:59 BRST 2045
+Fingerprints do certificado:
+         MD5:  02:13:B1:B3:F7:D6:EF:6B:8E:08:73:BB:45:0E:F8:CC
+         SHA1: F2:94:06:26:10:81:C5:FE:24:0F:41:89:1D:CE:26:17:E8:5C:C6:56
+         SHA256: 45:95:F0:C8:7E:CD:AD:DB:25:1C:BE:F5:C8:AC:71:2F:2A:ED:A2:C5:42:25:44:B3:D3:98:C7:BB:B0:35:0E:EF
+         Nome do algoritmo de assinatura: SHA256withRSA
+         Versão: 3
+
+Extensões:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: A4 9B 40 DA F2 66 E4 1B   46 D7 6A 7C 1C 51 93 93  ..@..f..F.j..Q..
+0010: 54 39 A3 33                                        T9.3
+]
+]
+
+
+C:\Users\Fernando>
+C:\Users\Fernando>

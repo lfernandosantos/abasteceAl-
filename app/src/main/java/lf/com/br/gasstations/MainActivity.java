@@ -2,6 +2,7 @@ package lf.com.br.gasstations;
 
 
 import android.*;
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -44,6 +45,7 @@ import java.util.List;
 
 import lf.com.br.gasstations.model.Data;
 
+import lf.com.br.gasstations.model.NoGPSInternet;
 import lf.com.br.gasstations.model.Posto;
 import lf.com.br.gasstations.model.PostoCatalog;
 import me.drakeet.materialdialog.MaterialDialog;
@@ -136,7 +138,7 @@ public class MainActivity extends Activity implements LocationListener, GoogleAp
         //Glide.with(MainActivity.this).load(R.drawable.screen).into(imageViewScreen);
 
         Glide.with(MainActivity.this).
-                load(R.drawable.ic_abastece_ai).into(imageView);
+                load(R.drawable.ic_new_launcher).into(imageView);
 
         Glide.with(MainActivity.this)
                 .load(R.drawable.logo_abastece_ai).into(imageViewLogo);
@@ -162,13 +164,13 @@ public class MainActivity extends Activity implements LocationListener, GoogleAp
     public void callAccessLocation() {
         Log.i("PER", "callAccessLocation()");
 
-        if( ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ){
+        if( ContextCompat.checkSelfPermission( this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ){
 
-            if( ActivityCompat.shouldShowRequestPermissionRationale( this, android.Manifest.permission.ACCESS_FINE_LOCATION ) ){
-                callDialog( "É preciso habilitar as permissões para utilizar o App.", new String[] {android.Manifest.permission.ACCESS_FINE_LOCATION} );
+            if( ActivityCompat.shouldShowRequestPermissionRationale( this, Manifest.permission.ACCESS_FINE_LOCATION ) ){
+                callDialog( "É preciso habilitar as permissões para utilizar o App.", new String[] {Manifest.permission.ACCESS_FINE_LOCATION} );
             }
             else{
-                ActivityCompat.requestPermissions( this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSIONS_CODE );
+                ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSIONS_CODE );
             }
         }
         else{
@@ -354,8 +356,16 @@ public class MainActivity extends Activity implements LocationListener, GoogleAp
             return;
         }
         Location l = LocationServices.FusedLocationApi.getLastLocation(client);
-        buscaJSON(l.getLatitude(),l.getLongitude());
 
+        if (l != null) {
+            buscaJSON(l.getLatitude(), l.getLongitude());
+        }else {
+
+            Intent intentNoGpsInternet = new Intent(MainActivity.this, NoGPSInternet.class);
+            startActivity(intentNoGpsInternet);
+
+
+        }
         client.disconnect();
     }
 
